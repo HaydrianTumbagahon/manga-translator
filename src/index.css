@@ -1,0 +1,80 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --bg: #0a1428;
+    --surface: #1e2a44;
+    --surface-strong: #152138;
+    --accent: #3b82f6;
+    --accent-soft: #60a5fa;
+    --text: #e2e8f0;
+    --shadow-dark: 20px 20px 40px rgba(0, 0, 0, 0.35);
+    --shadow-light: -14px -14px 30px rgba(96, 165, 250, 0.08);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply min-h-screen bg-background text-text antialiased;
+    margin: 0;
+    background: radial-gradient(circle at top, rgba(96, 165, 250, 0.12), transparent 22%),
+                radial-gradient(circle at bottom right, rgba(59, 130, 246, 0.08), transparent 26%),
+                #0a1428;
+  }
+
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  button, input, select, textarea {
+    transition: background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease, color 0.25s ease, transform 0.25s ease;
+  }
+}
+
+@layer utilities {
+  .shadow-neu {
+    box-shadow: var(--shadow-dark), var(--shadow-light);
+  }
+
+  .shadow-neu-sm {
+    box-shadow: 14px 14px 28px rgba(0, 0, 0, 0.22), -10px -10px 22px rgba(96, 165, 250, 0.06);
+  }
+
+  .shadow-neu-active {
+    box-shadow: inset 6px 6px 16px rgba(0, 0, 0, 0.35), inset -6px -6px 16px rgba(96, 165, 250, 0.2);
+  }
+
+  .sad-face-bounce {
+    animation: bob 3s ease-in-out infinite;
+  }
+
+  .tear-drop {
+    animation: drip 2.5s ease-in-out infinite;
+  }
+
+  @keyframes bob {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-8px);
+    }
+  }
+
+  @keyframes drip {
+    0%, 100% {
+      transform: translateY(0);
+      opacity: 0.9;
+    }
+    50% {
+      transform: translateY(8px);
+      opacity: 0.6;
+    }
+  }
+}

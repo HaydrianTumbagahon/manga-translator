@@ -1,0 +1,86 @@
+# Node modules
+node_modules/
+
+# Vite build output
+/dist/
+
+# Local environment files
+.env
+.env.*
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+pnpm-error.log*
+*.log
+
+# OS generated files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# IDE/editor settings
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Yarn / npm lock files if using pnpm or yarn on local machine only
+# (keep the one used for the project, ignore others)
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Temporary directories
+.tmp/
+.temp/
+.cache/
+
+# Vite cache
+node_modules/.vite/
+
+# Coverage reports
+coverage/
+coverage-final.json
+
+# Storybook build output (if added later)
+storybook-static/
+
+# Testing artifacts
+jest-cache/
+jest-coverage/
+
+# Local database / upload folders
+/prisma/
+*.sqlite
+*.sqlite3
+*.db
+*.db-journal
+/uploads/
+/storage/
+/dist_uploads/
+
+# Miscellaneous
+*.local
+*.env.local
+*.env.development.local
+*.env.test.local
+*.env.production.local
+
+# Generated lockfiles for projects using multiple package managers
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+
+# Optional, if using TS output or build artifacts from other tools
+*.tsbuildinfo
+
+# Prevent accidental commits of OS or filesystem metadata
+**/.DS_Store
+**/Thumbs.db
