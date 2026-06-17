@@ -1,10 +1,15 @@
 import { useState } from 'react';
+import { Dropdown } from 'antd';
+
+const sourceLanguages = ['Auto-Detect', 'Japanese', 'English', 'Korean'];
+const targetLanguages = ['English', 'Japanese', 'Spanish', 'French'];
 
 function Translate() {
   const [isDragging, setIsDragging] = useState(false);
   const [fromLanguage, setFromLanguage] = useState('Auto-Detect');
   const [toLanguage, setToLanguage] = useState('English');
   const [outputText, setOutputText] = useState('Output will be displayed here');
+  const [showRows, setShowRows] = useState(10);
 
   const handleDragEnter = (event) => {
     event.preventDefault();
@@ -36,36 +41,62 @@ function Translate() {
     setOutputText('Output will be displayed here');
   };
 
+  const fromItems = sourceLanguages.map((language) => ({
+    key: language,
+    label: language,
+  }));
+
+  const toItems = targetLanguages.map((language) => ({
+    key: language,
+    label: language,
+  }));
+
   return (
     <div className="space-y-10 pb-16">
       <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-        <label className="w-full max-w-full space-y-2 rounded-[1.75rem] border border-white/10 bg-background/90 p-4 shadow-neu-sm transition duration-300 sm:max-w-[16rem]">
-          <span className="text-sm uppercase tracking-[0.3em] text-text/70">Translate from</span>
-          <select
-            value={fromLanguage}
-            onChange={(e) => setFromLanguage(e.target.value)}
-            className="w-full rounded-3xl border border-white/10 bg-surface px-4 py-3 text-text outline-none transition focus:border-accent"
+        <Dropdown
+          menu={{
+            items: fromItems,
+            onClick: ({ key }) => setFromLanguage(key),
+          }}
+          trigger={['click']}
+          placement="bottomLeft"
+        >
+          <button
+            type="button"
+            className="w-full rounded-[1.75rem] border border-white/10 bg-background/90 px-4 py-4 text-left text-text transition duration-300 hover:border-accent focus:outline-none sm:max-w-[16rem]"
           >
-            <option>Auto-Detect</option>
-            <option>Japanese</option>
-            <option>English</option>
-            <option>Korean</option>
-          </select>
-        </label>
+            <div className="flex items-center justify-between gap-4">
+              <div>
+                <div className="text-xs uppercase tracking-[0.3em] text-text/70">Translate from</div>
+                <div className="mt-2 text-sm font-semibold text-text">{fromLanguage}</div>
+              </div>
+              <span className="text-text/50">▾</span>
+            </div>
+          </button>
+        </Dropdown>
 
-        <label className="w-full max-w-full space-y-2 rounded-[1.75rem] border border-white/10 bg-background/90 p-4 shadow-neu-sm transition duration-300 sm:max-w-[16rem]">
-          <span className="text-sm uppercase tracking-[0.3em] text-text/70">Translate to</span>
-          <select
-            value={toLanguage}
-            onChange={(e) => setToLanguage(e.target.value)}
-            className="w-full rounded-3xl border border-white/10 bg-surface px-4 py-3 text-text outline-none transition focus:border-accent"
+        <Dropdown
+          menu={{
+            items: toItems,
+            onClick: ({ key }) => setToLanguage(key),
+          }}
+          trigger={['click']}
+          placement="bottomLeft"
+        >
+          <button
+            type="button"
+            className="w-full rounded-[1.75rem] border border-white/10 bg-background/90 px-4 py-4 text-left text-text transition duration-300 hover:border-accent focus:outline-none sm:max-w-[16rem]"
           >
-            <option>English</option>
-            <option>Japanese</option>
-            <option>Spanish</option>
-            <option>French</option>
-          </select>
-        </label>
+            <div className="flex items-center justify-between gap-4">
+              <div>
+                <div className="text-xs uppercase tracking-[0.3em] text-text/70">Translate to</div>
+                <div className="mt-2 text-sm font-semibold text-text">{toLanguage}</div>
+              </div>
+              <span className="text-text/50">▾</span>
+            </div>
+          </button>
+        </Dropdown>
       </div>
 
       <div className="grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
@@ -133,14 +164,14 @@ function Translate() {
             <thead className="border-b border-white/10 bg-background/90">
               <tr>
                 <th className="px-6 py-4 font-semibold text-text">Name</th>
-                <th className="px-6 py-4 font-semibold text-text">Status</th>
-                <th className="px-6 py-4 font-semibold text-text">Languages</th>
-                <th className="px-6 py-4 font-semibold text-text">Date</th>
+                <th className="hidden sm:table-cell px-6 py-4 font-semibold text-text">Status</th>
+                <th className="hidden md:table-cell px-6 py-4 font-semibold text-text">Languages</th>
+                <th className="hidden lg:table-cell px-6 py-4 font-semibold text-text">Date</th>
               </tr>
             </thead>
             <tbody>
               <tr className="h-24">
-                <td colSpan="4" className="px-6 py-8 text-center text-text/50">
+                <td colSpan="4" className="px-6 py-8 text-center text-text/50 sm:px-12">
                   No translations yet
                 </td>
               </tr>
@@ -148,12 +179,16 @@ function Translate() {
           </table>
 
           <div className="flex flex-col gap-4 border-t border-white/10 bg-background/90 px-6 py-4 sm:flex-row sm:items-center sm:justify-between">
-            <div className="flex items-center gap-3 text-sm text-text/70">
+            <div className="hidden sm:flex items-center gap-3 text-sm text-text/70">
               <span>Show rows per page:</span>
-              <select className="rounded-full border border-white/10 bg-surface px-3 py-2 text-sm text-text outline-none transition focus:border-accent">
-                <option>20</option>
-                <option>10</option>
-                <option>50</option>
+              <select
+                value={showRows}
+                onChange={(event) => setShowRows(Number(event.target.value))}
+                className="rounded-full border border-white/10 bg-surface px-3 py-2 text-sm text-text outline-none transition focus:border-accent"
+              >
+                <option value={10}>10</option>
+                <option value={30}>30</option>
+                <option value={50}>50</option>
               </select>
             </div>
             <div className="flex items-center justify-between gap-4 text-sm text-text/70 sm:justify-end">

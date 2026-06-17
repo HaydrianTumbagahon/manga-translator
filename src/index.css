@@ -50,6 +50,78 @@
     box-shadow: inset 6px 6px 16px rgba(0, 0, 0, 0.35), inset -6px -6px 16px rgba(96, 165, 250, 0.2);
   }
 
+  .hamburger {
+    height: 50px;
+    width: 50px;
+    position: relative;
+  }
+
+  .hamburger .checkbox {
+    position: absolute;
+    opacity: 0;
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+    z-index: 10;
+  }
+
+  .line {
+    transition: 0.5s;
+    stroke-width: 6px;
+    stroke: currentColor;
+  }
+
+  .lineTop {
+    stroke-dasharray: 40 40;
+    stroke-dashoffset: 25;
+  }
+
+  .lineBottom {
+    stroke-dasharray: 40 40;
+    stroke-dashoffset: 60;
+  }
+
+  .lineMid {
+    stroke-dasharray: 40 40;
+  }
+
+  .hamburger .checkbox:checked + svg .line {
+    stroke: #3b82f6;
+  }
+
+  .hamburger .checkbox:checked + svg .lineTop {
+    stroke-dashoffset: 0;
+    transform-origin: left;
+    transform: rotateZ(45deg) translate(-7px, -5px);
+  }
+
+  .hamburger .checkbox:checked + svg .lineMid {
+    stroke-dashoffset: 40;
+  }
+
+  .hamburger .checkbox:checked + svg .lineBottom {
+    stroke-dashoffset: 0;
+    transform-origin: left;
+    transform: rotateZ(-45deg) translate(-5px, 5px);
+  }
+
+  .ant-dropdown-menu {
+    background: rgba(10, 20, 40, 0.96);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+  }
+
+  .ant-dropdown-menu-item {
+    color: #e2e8f0;
+  }
+
+  .ant-dropdown-menu-item:hover,
+  .ant-dropdown-menu-item-active,
+  .ant-dropdown-menu-item-selected {
+    background: rgba(59, 130, 246, 0.12);
+    color: #3b82f6;
+  }
+
   .sad-face-bounce {
     animation: bob 3s ease-in-out infinite;
   }
@@ -76,5 +148,18 @@
       transform: translateY(8px);
       opacity: 0.6;
     }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  .fade-in {
+    animation: fadeIn 0.3s ease-in-out;
   }
 }

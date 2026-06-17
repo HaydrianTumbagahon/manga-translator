@@ -1,4 +1,4 @@
-const links = ['About', 'Terms and Conditions', 'Privacy Policy'];
+const links = ['About', 'FAQs', 'Terms and Conditions', 'Privacy Policy'];
 const languages = ['English', '日本語', '한국어'];
 const socials = [
   {
@@ -39,7 +39,12 @@ const socials = [
   },
 ];
 
-function Footer({ language, setLanguage }) {
+function Footer({ setActiveTab, language, setLanguage }) {
+  const handleLinkClick = (link) => {
+    setActiveTab(link);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <footer className="mt-auto border-t border-white/10 bg-background/95 py-6 text-text/70 shadow-neu-sm">
       <div className="mx-auto grid max-w-7xl grid-cols-1 gap-6 px-4 sm:grid-cols-3 sm:gap-8 sm:px-6 lg:px-8">
@@ -47,7 +52,12 @@ function Footer({ language, setLanguage }) {
           <p className="text-sm font-semibold uppercase tracking-[0.24em] text-accent/90">Links</p>
           <div className="space-y-3 text-sm text-text/70">
             {links.map((link) => (
-              <button key={link} className="block text-left transition hover:text-accent" type="button">
+              <button
+                key={link}
+                onClick={() => handleLinkClick(link)}
+                className="block text-left transition hover:text-accent"
+                type="button"
+              >
                 {link}
               </button>
             ))}
