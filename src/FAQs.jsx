@@ -1,58 +1,11 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 function FAQs() {
+  const { t } = useTranslation();
   const [openIndex, setOpenIndex] = useState(0);
 
-  const faqs = [
-    {
-      question: 'What file formats does MangaTranslator support?',
-      answer: 'We support JPG, PNG, WebP, and archive formats like ZIP and CBZ (Comic Book Archive). You can also upload entire folders for batch processing. Our system automatically detects the best processing method for each file type.',
-    },
-    {
-      question: 'How accurate are the translations?',
-      answer: 'Our AI-powered translation engine uses context-aware deep learning trained on thousands of manga pages. Accuracy depends on image quality and text clarity, but we typically achieve 95%+ accuracy for most manga. Manual review is recommended for professional use.',
-    },
-    {
-      question: 'Is my data safe and private?',
-      answer: 'Absolutely. All processing happens securely on our servers. Uploaded files are processed and deleted immediately after translation. We do not store, share, or use your images for training. See our Privacy Policy for detailed information.',
-    },
-    {
-      question: 'How long does translation take?',
-      answer: 'Most images translate in 5-30 seconds depending on complexity and current server load. Batch processing typically takes a few minutes for 50+ pages. Premium users get priority processing queues.',
-    },
-    {
-      question: 'Can I translate manga into multiple languages at once?',
-      answer: 'Yes! You can translate a single manga into multiple target languages simultaneously. Choose your target languages, and our system will process and deliver all versions. This is perfect for sharing with international communities.',
-    },
-    {
-      question: 'Does MangaTranslator preserve the original artwork?',
-      answer: 'Yes, that\'s our core philosophy. We only translate the text and speech bubbles while keeping all original artwork, colors, and layout intact. The character expressions and visual storytelling remain exactly as the artist intended.',
-    },
-    {
-      question: 'Can I use these translations commercially?',
-      answer: 'MangaTranslator is designed for personal use and fan translation. Using our translations for commercial purposes requires proper licensing agreements with copyright holders. Please review our Terms and Conditions for details.',
-    },
-    {
-      question: 'Do you support OCR for handwritten text?',
-      answer: 'Our current system handles printed manga text excellently. Handwritten text recognition is on our roadmap for future releases. Let us know if this feature is important to you!',
-    },
-    {
-      question: 'What languages can I translate from and to?',
-      answer: 'We currently support Japanese, English, Spanish, French, German, Italian, Portuguese, Korean, and Simplified/Traditional Chinese. More languages are being added regularly based on community demand.',
-    },
-    {
-      question: 'Is there a batch processing limit?',
-      answer: 'Free users can translate up to 50 pages per month. Premium users get unlimited processing. Batch upload supports up to 1000 pages at once for efficient processing.',
-    },
-    {
-      question: 'How do I report a translation error?',
-      answer: 'We have a feedback system in the dashboard where you can report inaccuracies. Your feedback helps us improve the AI model. Premium users get direct support and manual correction options.',
-    },
-    {
-      question: 'Is MangaTranslator open source?',
-      answer: 'Yes! Our codebase is open source on GitHub. We welcome contributions, bug reports, and feature requests from the community. Join our Discord server to connect with other developers and users.',
-    },
-  ];
+  const faqs = t('faqs.items', { returnObjects: true });
 
   const toggleAccordion = (index) => {
     setOpenIndex(openIndex === index ? -1 : index);
@@ -62,11 +15,9 @@ function FAQs() {
     <div className="w-full space-y-6 pb-16 sm:space-y-8">
       <div className="w-full space-y-3 sm:space-y-4">
         <h1 className="break-words text-3xl font-bold leading-tight text-text sm:text-4xl md:text-5xl lg:text-6xl">
-          Frequently Asked Questions
+          {t('faqs.title')}
         </h1>
-        <p className="text-base text-text/70 sm:text-lg">
-          Find answers to common questions about MangaTranslator, features, and how to get the best results.
-        </p>
+        <p className="text-base text-text/70 sm:text-lg">{t('faqs.description')}</p>
       </div>
 
       <div className="w-full space-y-2 sm:space-y-3">
@@ -105,16 +56,14 @@ function FAQs() {
       </div>
 
       <div className="w-full overflow-hidden rounded-[2rem] border border-white/10 bg-background/80 p-5 sm:p-8 shadow-neu">
-        <h2 className="mb-4 text-2xl font-bold text-text sm:mb-6 sm:text-2xl">Still have questions?</h2>
-        <p className="mb-4 text-sm leading-6 text-text/70 sm:mb-6 sm:text-base sm:leading-7">
-          Can't find the answer you're looking for? Please reach out to our support team or join our community Discord.
-        </p>
+        <h2 className="mb-4 text-2xl font-bold text-text sm:mb-6 sm:text-2xl">{t('faqs.ctaTitle')}</h2>
+        <p className="mb-4 text-sm leading-6 text-text/70 sm:mb-6 sm:text-base sm:leading-7">{t('faqs.ctaText')}</p>
         <div className="flex flex-wrap gap-3 sm:gap-4">
           <button className="rounded-full bg-accent px-5 py-2 text-sm font-semibold text-background transition duration-300 hover:bg-accentSoft sm:px-8 sm:py-3">
-            Contact Support
+            {t('faqs.supportButton')}
           </button>
           <button className="rounded-full border border-white/10 bg-surface px-5 py-2 text-sm font-medium text-text/80 transition duration-300 hover:border-accent hover:text-accent sm:px-6 sm:py-3">
-            Join Discord
+            {t('faqs.discordButton')}
           </button>
         </div>
       </div>

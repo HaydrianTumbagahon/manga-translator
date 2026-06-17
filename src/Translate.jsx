@@ -1,15 +1,28 @@
 import { useState } from 'react';
 import { Dropdown } from 'antd';
-
-const sourceLanguages = ['Auto-Detect', 'Japanese', 'English', 'Korean'];
-const targetLanguages = ['English', 'Japanese', 'Spanish', 'French'];
+import { useTranslation } from 'react-i18next';
 
 function Translate() {
+  const { t } = useTranslation();
   const [isDragging, setIsDragging] = useState(false);
-  const [fromLanguage, setFromLanguage] = useState('Auto-Detect');
-  const [toLanguage, setToLanguage] = useState('English');
-  const [outputText, setOutputText] = useState('Output will be displayed here');
+  const [fromLanguage, setFromLanguage] = useState(t('translate.autoDetect'));
+  const [toLanguage, setToLanguage] = useState(t('translate.target.english'));
+  const [outputText, setOutputText] = useState('');
   const [showRows, setShowRows] = useState(10);
+
+  const sourceLanguages = [
+    { key: t('translate.autoDetect'), label: t('translate.autoDetect') },
+    { key: t('translate.source.japanese'), label: t('translate.source.japanese') },
+    { key: t('translate.source.english'), label: t('translate.source.english') },
+    { key: t('translate.source.korean'), label: t('translate.source.korean') }
+  ];
+
+  const targetLanguages = [
+    { key: t('translate.target.english'), label: t('translate.target.english') },
+    { key: t('translate.target.japanese'), label: t('translate.target.japanese') },
+    { key: t('translate.target.spanish'), label: t('translate.target.spanish') },
+    { key: t('translate.target.french'), label: t('translate.target.french') }
+  ];
 
   const handleDragEnter = (event) => {
     event.preventDefault();
@@ -34,21 +47,21 @@ function Translate() {
     event.stopPropagation();
     setIsDragging(false);
     const files = Array.from(event.dataTransfer.files).map((file) => file.name).join(', ');
-    setOutputText(files ? `Files detected: ${files}` : 'Output will be displayed here');
+    setOutputText(files ? `${t('translate.outputPlaceholder')} ${files}` : '');
   };
 
   const handleClear = () => {
-    setOutputText('Output will be displayed here');
+    setOutputText('');
   };
 
   const fromItems = sourceLanguages.map((language) => ({
-    key: language,
-    label: language,
+    key: language.key,
+    label: language.label,
   }));
 
   const toItems = targetLanguages.map((language) => ({
-    key: language,
-    label: language,
+    key: language.key,
+    label: language.label,
   }));
 
   return (
@@ -68,7 +81,7 @@ function Translate() {
           >
             <div className="flex items-center justify-between gap-4">
               <div>
-                <div className="text-xs uppercase tracking-[0.3em] text-text/70">Translate from</div>
+                <div className="text-xs uppercase tracking-[0.3em] text-text/70">{t('translate.translateFrom')}</div>
                 <div className="mt-2 text-sm font-semibold text-text">{fromLanguage}</div>
               </div>
               <span className="text-text/50">▾</span>
@@ -90,7 +103,7 @@ function Translate() {
           >
             <div className="flex items-center justify-between gap-4">
               <div>
-                <div className="text-xs uppercase tracking-[0.3em] text-text/70">Translate to</div>
+                <div className="text-xs uppercase tracking-[0.3em] text-text/70">{t('translate.translateTo')}</div>
                 <div className="mt-2 text-sm font-semibold text-text">{toLanguage}</div>
               </div>
               <span className="text-text/50">▾</span>
@@ -120,41 +133,41 @@ function Translate() {
               </svg>
             </div>
             <div className="space-y-3">
-              <p className="text-xl font-semibold text-text">Browse files or Drag&Drop them here</p>
-              <p className="text-sm text-text/70">Supported: jpg, png, webp, zip, cbz, folders</p>
+              <p className="text-xl font-semibold text-text">{t('translate.browseTitle')}</p>
+              <p className="text-sm text-text/70">{t('translate.browseSubtitle')}</p>
             </div>
           </div>
         </div>
 
         <div className="rounded-[2rem] border border-white/10 bg-background p-8 shadow-neu transition duration-300 hover:shadow-neu-sm">
-          <h3 className="mb-4 text-lg font-semibold text-text">Output</h3>
+          <h3 className="mb-4 text-lg font-semibold text-text">{t('translate.outputTitle')}</h3>
           <div className="flex min-h-[300px] items-center justify-center rounded-[1.75rem] border border-white/10 bg-surface/90 p-6 text-center text-text/70 shadow-neu-sm transition duration-300">
-            <p>{outputText}</p>
+            <p>{outputText || t('translate.outputPlaceholder')}</p>
           </div>
         </div>
       </div>
 
       <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <button className="rounded-full bg-accent px-8 py-4 text-sm font-semibold text-background shadow-[0_16px_36px_rgba(59,130,246,0.24)] transition duration-300 hover:bg-accentSoft hover:shadow-[0_18px_42px_rgba(59,130,246,0.32)]">
-          Translate
+          {t('translate.translateButton')}
         </button>
         <button
           onClick={handleClear}
           className="rounded-full border border-white/10 bg-background/90 px-8 py-4 text-sm font-semibold text-text/80 transition duration-300 hover:border-accent hover:text-accent"
         >
-          Clear
+          {t('translate.clearButton')}
         </button>
       </div>
 
       <section className="rounded-[2rem] border border-white/10 bg-surface/90 p-8 shadow-neu pb-16">
         <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-          <h2 className="text-2xl font-semibold text-text">Your recent translations</h2>
+          <h2 className="text-2xl font-semibold text-text">{t('translate.recentTitle')}</h2>
           <label className="flex items-center gap-3 text-sm text-text/70">
-            <span className="font-medium text-text/70">Sort by:</span>
+            <span className="font-medium text-text/70">{t('translate.sortBy')}</span>
             <select className="rounded-full border border-white/10 bg-background/90 px-4 py-2 text-sm text-text outline-none transition focus:border-accent">
-              <option>Date (Newest First)</option>
-              <option>Date (Oldest First)</option>
-              <option>Name (A-Z)</option>
+              <option>{t('translate.sortNewest')}</option>
+              <option>{t('translate.sortOldest')}</option>
+              <option>{t('translate.sortName')}</option>
             </select>
           </label>
         </div>
@@ -163,7 +176,7 @@ function Translate() {
           <table className="min-w-full text-left text-sm text-text/70">
             <thead className="border-b border-white/10 bg-background/90">
               <tr>
-                <th className="px-6 py-4 font-semibold text-text">Name</th>
+                <th className="px-6 py-4 font-semibold text-text">{t('translate.outputTitle')}</th>
                 <th className="hidden sm:table-cell px-6 py-4 font-semibold text-text">Status</th>
                 <th className="hidden md:table-cell px-6 py-4 font-semibold text-text">Languages</th>
                 <th className="hidden lg:table-cell px-6 py-4 font-semibold text-text">Date</th>
@@ -172,7 +185,7 @@ function Translate() {
             <tbody>
               <tr className="h-24">
                 <td colSpan="4" className="px-6 py-8 text-center text-text/50 sm:px-12">
-                  No translations yet
+                  {t('translate.noTranslations')}
                 </td>
               </tr>
             </tbody>
@@ -180,7 +193,7 @@ function Translate() {
 
           <div className="flex flex-col gap-4 border-t border-white/10 bg-background/90 px-6 py-4 sm:flex-row sm:items-center sm:justify-between">
             <div className="hidden sm:flex items-center gap-3 text-sm text-text/70">
-              <span>Show rows per page:</span>
+              <span>{t('translate.showRows')}</span>
               <select
                 value={showRows}
                 onChange={(event) => setShowRows(Number(event.target.value))}
@@ -192,13 +205,13 @@ function Translate() {
               </select>
             </div>
             <div className="flex items-center justify-between gap-4 text-sm text-text/70 sm:justify-end">
-              <span>1-0 of 0</span>
+              <span>{t('translate.pagination.range')}</span>
               <div className="flex items-center gap-2">
                 <button className="rounded-full border border-white/10 bg-surface px-3 py-2 text-sm text-text/70 transition hover:border-accent hover:text-accent" disabled>
-                  Previous
+                  {t('translate.pagination.prev')}
                 </button>
                 <button className="rounded-full border border-white/10 bg-surface px-3 py-2 text-sm text-text/70 transition hover:border-accent hover:text-accent" disabled>
-                  Next
+                  {t('translate.pagination.next')}
                 </button>
               </div>
             </div>

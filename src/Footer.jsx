@@ -1,5 +1,23 @@
+import { useTranslation } from 'react-i18next';
+
 const links = ['About', 'FAQs', 'Terms and Conditions', 'Privacy Policy'];
-const languages = ['English', '日本語', '한국어'];
+const languages = [
+  { code: 'en', label: 'English' },
+  { code: 'zh-CN', label: '简体中文' },
+  { code: 'zh-TW', label: '繁體中文' },
+  { code: 'ja', label: '日本語' },
+  { code: 'ko', label: '한국어' },
+  { code: 'ar', label: 'العربية' },
+  { code: 'bn', label: 'বাংলা' },
+  { code: 'de', label: 'Deutsch' },
+  { code: 'es', label: 'Español' },
+  { code: 'fr', label: 'Français' },
+  { code: 'hi', label: 'हिन्दी' },
+  { code: 'ms', label: 'Bahasa Melayu' },
+  { code: 'pt', label: 'Português' },
+  { code: 'ru', label: 'Русский' },
+  { code: 'tr', label: 'Türkçe' }
+];
 const socials = [
   {
     name: 'GitHub',
@@ -36,51 +54,61 @@ const socials = [
         <path d="M23.5 6.2s-.2-1.6-.8-2.3c-.8-.9-1.7-.9-2.1-1-2.9-.2-7.2-.2-7.2-.2h-.1s-4.3 0-7.2.2c-.4.1-1.4.1-2.1 1-.6.7-.8 2.3-.8 2.3S2 7.9 2 9.7v1.6c0 1.8.2 3.5.2 3.5s.2 1.6.8 2.3c.8.9 1.9.9 2.4 1 1.7.1 7.2.2 7.2.2s4.3 0 7.2-.2c.4-.1 1.4-.1 2.1-1 .6-.7.8-2.3.8-2.3s.2-1.7.2-3.5v-1.6c0-1.8-.2-3.5-.2-3.5zM9.75 14.57V8.43l5.5 3.07-5.5 3.07z" />
       </svg>
     ),
-  },
+  }
 ];
 
-function Footer({ setActiveTab, language, setLanguage }) {
+function Footer({ setActiveTab }) {
+  const { t, i18n } = useTranslation();
+  const currentLanguage = i18n.language || 'en';
+
   const handleLinkClick = (link) => {
     setActiveTab(link);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const handleLanguageChange = (code) => {
+    i18n.changeLanguage(code);
+    localStorage.setItem('language', code);
+  };
+
+  const footerLinks = links.map((link) => ({ key: link, label: t(`nav.${link === 'Terms and Conditions' ? 'terms' : link === 'Privacy Policy' ? 'privacy' : link.toLowerCase()}`) }));
+
   return (
     <footer className="mt-auto border-t border-white/10 bg-background/95 py-6 text-text/70 shadow-neu-sm">
       <div className="mx-auto grid max-w-7xl grid-cols-1 gap-6 px-4 sm:grid-cols-3 sm:gap-8 sm:px-6 lg:px-8">
         <div className="space-y-4 text-left">
-          <p className="text-sm font-semibold uppercase tracking-[0.24em] text-accent/90">Links</p>
+          <p className="text-sm font-semibold uppercase tracking-[0.24em] text-accent/90">{t('footer.linksLabel')}</p>
           <div className="space-y-3 text-sm text-text/70">
-            {links.map((link) => (
+            {footerLinks.map((link) => (
               <button
-                key={link}
-                onClick={() => handleLinkClick(link)}
+                key={link.key}
+                onClick={() => handleLinkClick(link.key)}
                 className="block text-left transition hover:text-accent"
                 type="button"
               >
-                {link}
+                {link.label}
               </button>
             ))}
           </div>
         </div>
 
         <div className="space-y-3 text-left">
-          <p className="text-sm font-semibold uppercase tracking-[0.24em] text-accent/90">Languages</p>
-          <div className="flex flex-wrap gap-2">
+          <p className="text-sm font-semibold uppercase tracking-[0.24em] text-accent/90">{t('footer.languagesLabel')}</p>
+          <div className="grid grid-cols-2 gap-2 sm:grid-cols-5">
             {languages.map((lang) => {
-              const active = language === lang;
+              const active = currentLanguage === lang.code;
               return (
                 <button
-                  key={lang}
+                  key={lang.code}
                   type="button"
-                  onClick={() => setLanguage(lang)}
-                  className={`rounded-full border px-3 py-2 text-sm transition ${
+                  onClick={() => handleLanguageChange(lang.code)}
+                  className={`text-sm transition duration-200 ease-out ${
                     active
-                      ? 'border-accent bg-accent/10 text-accent shadow-neu-sm'
-                      : 'border-white/10 bg-surface text-text/70 hover:border-accent hover:text-text'
+                      ? 'text-accent'
+                      : 'text-text/70 hover:text-accent'
                   }`}
                 >
-                  {lang}
+                  {lang.label}
                 </button>
               );
             })}
@@ -107,7 +135,7 @@ function Footer({ setActiveTab, language, setLanguage }) {
       </div>
 
       <div className="mx-auto mt-6 max-w-7xl px-4 text-center text-xs text-text/50 sm:px-6 lg:px-8">
-        <p>© 2026 All rights reserved - ryven</p>
+        <p>{t('footer.copyright')}</p>
       </div>
     </footer>
   );

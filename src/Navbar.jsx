@@ -1,9 +1,11 @@
-import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 const tabs = ['Dashboard', 'Translate'];
 const drawerLinks = ['About', 'FAQs', 'Terms and Conditions', 'Privacy Policy'];
 
 function Navbar({ activeTab, setActiveTab, isDrawerOpen, setIsDrawerOpen }) {
+  const { t } = useTranslation();
+
   const handleNavigate = (tab) => {
     setActiveTab(tab);
     setIsDrawerOpen(false);
@@ -20,14 +22,15 @@ function Navbar({ activeTab, setActiveTab, isDrawerOpen, setIsDrawerOpen }) {
         <button
           onClick={handleLogoClick}
           className="text-xl font-bold tracking-tight text-text sm:text-2xl transition hover:text-accent"
-          aria-label="Go to home"
+          aria-label={t('app.title')}
         >
-          MangaTranslator
+          {t('app.title')}
         </button>
 
         <nav className="hidden md:flex flex-wrap items-center gap-3">
           {tabs.map((tab) => {
             const isActive = activeTab === tab;
+            const tabKey = tab.toLowerCase();
             return (
               <button
                 key={tab}
@@ -39,7 +42,7 @@ function Navbar({ activeTab, setActiveTab, isDrawerOpen, setIsDrawerOpen }) {
                 }`}
                 aria-current={isActive ? 'page' : undefined}
               >
-                {tab}
+                {t(`nav.${tabKey}`)}
               </button>
             );
           })}
@@ -52,7 +55,7 @@ function Navbar({ activeTab, setActiveTab, isDrawerOpen, setIsDrawerOpen }) {
               type="checkbox"
               checked={isDrawerOpen}
               onChange={(event) => setIsDrawerOpen(event.target.checked)}
-              aria-label="Toggle navigation drawer"
+              aria-label={t('app.title')}
             />
             <svg fill="none" viewBox="0 0 50 50" height="50" width="50">
               <path className="lineTop line" strokeLinecap="round" strokeWidth="4" stroke="currentColor" d="M6 11L44 11" />
@@ -83,7 +86,7 @@ function Navbar({ activeTab, setActiveTab, isDrawerOpen, setIsDrawerOpen }) {
                 type="button"
                 className="hamburger"
                 onClick={() => setIsDrawerOpen(false)}
-                aria-label="Close menu"
+                aria-label={t('app.title')}
               >
                 <input className="checkbox" type="checkbox" checked={isDrawerOpen} readOnly />
                 <svg fill="none" viewBox="0 0 50 50" height="50" width="50">
@@ -102,25 +105,28 @@ function Navbar({ activeTab, setActiveTab, isDrawerOpen, setIsDrawerOpen }) {
                   onClick={() => handleNavigate(tab)}
                   className="w-full rounded-[1.75rem] border border-white/10 bg-background/85 px-5 py-5 text-left text-base font-semibold text-text transition duration-300 hover:border-accent hover:bg-blue-500/10 hover:text-accent"
                 >
-                  {tab}
+                  {t(`nav.${tab.toLowerCase()}`)}
                 </button>
               ))}
             </div>
           </div>
 
           <div className="mt-10 border-t border-white/10 pt-6">
-            <p className="mb-4 text-sm uppercase tracking-[0.3em] text-text/60">Links</p>
+            <p className="mb-4 text-sm uppercase tracking-[0.3em] text-text/60">{t('footer.linksLabel')}</p>
             <div className="space-y-3">
-              {drawerLinks.map((link) => (
-                <button
-                  key={link}
-                  type="button"
-                  onClick={() => handleNavigate(link)}
-                  className="w-full rounded-[1.5rem] px-4 py-4 text-left text-sm font-medium text-text/80 transition duration-300 hover:text-accent"
-                >
-                  {link}
-                </button>
-              ))}
+              {drawerLinks.map((link) => {
+                const key = link === 'Terms and Conditions' ? 'terms' : link === 'Privacy Policy' ? 'privacy' : link.toLowerCase();
+                return (
+                  <button
+                    key={link}
+                    type="button"
+                    onClick={() => handleNavigate(link)}
+                    className="w-full rounded-[1.5rem] px-4 py-4 text-left text-sm font-medium text-text/80 transition duration-300 hover:text-accent"
+                  >
+                    {t(`nav.${key}`)}
+                  </button>
+                );
+              })}
             </div>
           </div>
         </div>

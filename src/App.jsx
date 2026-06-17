@@ -11,7 +11,6 @@ import Privacy from './Privacy.jsx';
 
 function App() {
   const [activeTab, setActiveTab] = useState('Home');
-  const [language, setLanguage] = useState('English');
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
   const renderPage = () => {
@@ -41,7 +40,7 @@ function App() {
         {renderPage()}
       </main>
 
-      <Footer setActiveTab={setActiveTab} language={language} setLanguage={setLanguage} />
+      <Footer setActiveTab={setActiveTab} />
     </div>
   );
 }
