@@ -12,11 +12,7 @@ const languages = [
   { code: 'de', label: 'Deutsch' },
   { code: 'es', label: 'Español' },
   { code: 'fr', label: 'Français' },
-  { code: 'hi', label: 'हिन्दी' },
-  { code: 'ms', label: 'Bahasa Melayu' },
-  { code: 'pt', label: 'Português' },
-  { code: 'ru', label: 'Русский' },
-  { code: 'tr', label: 'Türkçe' }
+  { code: 'hi', label: 'हिन्दी' }
 ];
 const socials = [
   {

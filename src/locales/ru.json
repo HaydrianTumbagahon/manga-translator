@@ -1,0 +1,330 @@
+{
+  "app": {
+    "title": "MangaTranslator"
+  },
+  "nav": {
+    "dashboard": "Dashboard",
+    "translate": "Translate",
+    "about": "About",
+    "faqs": "FAQs",
+    "terms": "Terms and Conditions",
+    "privacy": "Privacy Policy"
+  },
+  "landing": {
+    "title": "Translate your favorite manga instantly.",
+    "description": "Translate your favorite manga into any language instantly while preserving the original artwork and layout.",
+    "start": "Start translating",
+    "dashboard": "View dashboard"
+  },
+  "dashboard": {
+    "title": "No Translations Yet",
+    "description": "Looks like you don't have any translations yet. How about try to upload and translate some of your stuff?",
+    "button": "New Translation"
+  },
+  "translate": {
+    "translateFrom": "Translate from",
+    "translateTo": "Translate to",
+    "autoDetect": "Auto-Detect",
+    "source": {
+      "japanese": "Japanese",
+      "english": "English",
+      "korean": "Korean"
+    },
+    "target": {
+      "english": "English",
+      "japanese": "Japanese",
+      "spanish": "Spanish",
+      "french": "French"
+    },
+    "browseTitle": "Browse files or Drag&Drop them here",
+    "browseSubtitle": "Supported: jpg, png, webp, zip, cbz, folders",
+    "outputTitle": "Output",
+    "outputPlaceholder": "Output will be displayed here",
+    "translateButton": "Translate",
+    "clearButton": "Clear",
+    "recentTitle": "Your recent translations",
+    "sortBy": "Sort by:",
+    "sortNewest": "Date (Newest First)",
+    "sortOldest": "Date (Oldest First)",
+    "sortName": "Name (A-Z)",
+    "noTranslations": "No translations yet",
+    "showRows": "Show rows per page:",
+    "pagination": {
+      "prev": "Previous",
+      "next": "Next",
+      "range": "1-0 of 0"
+    }
+  },
+  "about": {
+    "title": "About MangaTranslator",
+    "description": "Bridging the gap between manga creators and global audiences through intelligent, accessible translation technology.",
+    "passionTitle": "Our Passion",
+    "passionText": "We started this project out of genuine love for manga and doujins. Frustrated with inconsistent and low-quality translations, we decided to create something better — a tool that respects the original artwork while delivering accurate, polished translations to readers worldwide.",
+    "missionTitle": "Our Mission",
+    "missionText": "Make high-quality manga translations accessible to everyone, instantly, while preserving the visual beauty of the original work. We believe language should never be a barrier to enjoying amazing stories.",
+    "featuresTitle": "Current Features",
+    "featuresText": "Support for multiple languages, batch processing, AI-powered translation with context awareness, and artwork preservation. Our engine handles complex manga layouts and speech bubbles with precision.",
+    "visionTitle": "Future Vision",
+    "visionText": "Expanding to support more languages, adding real-time translation mode, integrating community feedback, and building mobile apps. We're committed to continuous improvement and community collaboration.",
+    "whyTitle": "Why Choose MangaTranslator?",
+    "benefits": [
+      {
+        "title": "Context-Aware",
+        "desc": "AI understands manga-specific language and cultural nuances"
+      },
+      {
+        "title": "Artwork Preserved",
+        "desc": "Original art and layout remain untouched and beautiful"
+      },
+      {
+        "title": "Fast Processing",
+        "desc": "Get translations in seconds, not hours"
+      },
+      {
+        "title": "Multiple Languages",
+        "desc": "Support for Japanese, English, Spanish, French, and more"
+      },
+      {
+        "title": "Quality Focused",
+        "desc": "Hand-tuned translations that read naturally"
+      },
+      {
+        "title": "Community Driven",
+        "desc": "Built with manga readers and creators in mind"
+      }
+    ],
+    "openSourceTitle": "Open Source & Community",
+    "openSourceText": "MangaTranslator is built by passionate developers and manga enthusiasts. We believe in transparency, community collaboration, and giving back to the manga community. Contributions, feedback, and support from readers like you make this project possible.",
+    "githubButton": "View on GitHub",
+    "discordButton": "Join Discord"
+  },
+  "faqs": {
+    "title": "Frequently Asked Questions",
+    "description": "Find answers to common questions about MangaTranslator, features, and how to get the best results.",
+    "items": [
+      {
+        "question": "What file formats does MangaTranslator support?",
+        "answer": "We support JPG, PNG, WebP, and archive formats like ZIP and CBZ (Comic Book Archive). You can also upload entire folders for batch processing. Our system automatically detects the best processing method for each file type."
+      },
+      {
+        "question": "How accurate are the translations?",
+        "answer": "Our AI-powered translation engine uses context-aware deep learning trained on thousands of manga pages. Accuracy depends on image quality and text clarity, but we typically achieve 95%+ accuracy for most manga. Manual review is recommended for professional use."
+      },
+      {
+        "question": "Is my data safe and private?",
+        "answer": "Absolutely. All processing happens securely on our servers. Uploaded files are processed and deleted immediately after translation. We do not store, share, or use your images for training. See our Privacy Policy for detailed information."
+      },
+      {
+        "question": "How long does translation take?",
+        "answer": "Most images translate in 5-30 seconds depending on complexity and current server load. Batch processing typically takes a few minutes for 50+ pages. Premium users get priority processing queues."
+      },
+      {
+        "question": "Can I translate manga into multiple languages at once?",
+        "answer": "Yes! You can translate a single manga into multiple target languages simultaneously. Choose your target languages, and our system will process and deliver all versions. This is perfect for sharing with international communities."
+      },
+      {
+        "question": "Does MangaTranslator preserve the original artwork?",
+        "answer": "Yes, that's our core philosophy. We only translate the text and speech bubbles while keeping all original artwork, colors, and layout intact. The character expressions and visual storytelling remain exactly as the artist intended."
+      },
+      {
+        "question": "Can I use these translations commercially?",
+        "answer": "MangaTranslator is designed for personal use and fan translation. Using our translations for commercial purposes requires proper licensing agreements with copyright holders. Please review our Terms and Conditions for details."
+      },
+      {
+        "question": "Do you support OCR for handwritten text?",
+        "answer": "Our current system handles printed manga text excellently. Handwritten text recognition is on our roadmap for future releases. Let us know if this feature is important to you!"
+      },
+      {
+        "question": "What languages can I translate from and to?",
+        "answer": "We currently support Japanese, English, Spanish, French, German, Italian, Portuguese, Korean, and Simplified/Traditional Chinese. More languages are being added regularly based on community demand."
+      },
+      {
+        "question": "Is there a batch processing limit?",
+        "answer": "Free users can translate up to 50 pages per month. Premium users get unlimited processing. Batch upload supports up to 1000 pages at once for efficient processing."
+      },
+      {
+        "question": "How do I report a translation error?",
+        "answer": "We have a feedback system in the dashboard where you can report inaccuracies. Your feedback helps us improve the AI model. We offer direct support and manual correction options."
+      },
+      {
+        "question": "Is MangaTranslator open source?",
+        "answer": "Yes! Our codebase is open source on GitHub. We welcome contributions, bug reports, and feature requests from the community. Join our Discord server to connect with other developers and users."
+      }
+    ],
+    "ctaTitle": "Still have questions?",
+    "ctaText": "Can't find the answer you're looking for? Please reach out to our support team or join our community Discord.",
+    "supportButton": "Contact Support",
+    "discordButton": "Join Discord"
+  },
+  "footer": {
+    "linksLabel": "Links",
+    "languagesLabel": "Languages",
+    "copyright": "© 2026 All rights reserved - ryven"
+  },
+  "terms": {
+    "title": "Terms and Conditions",
+    "description": "Please read these terms carefully before using MangaTranslator.",
+    "sections": [
+      {
+        "title": "1. Acceptance of Terms",
+        "content": [
+          "By accessing and using MangaTranslator, you accept and agree to be bound by the terms and provision of this agreement. If you do not agree to abide by the above, please do not use this service."
+        ]
+      },
+      {
+        "title": "2. Use License",
+        "content": [
+          "Permission is granted to temporarily download one copy of the materials (information or software) on MangaTranslator for personal, non-commercial transitory viewing only. This is the grant of a license, not a transfer of title, and under this license you may not:",
+          "Modify or copy the materials",
+          "Use the materials for any commercial purpose or for any public display",
+          "Attempt to decompile or reverse engineer any software contained on MangaTranslator",
+          "Remove any copyright or other proprietary notations from the materials",
+          "Transfer the materials to another person or \"mirror\" the materials on any other server"
+        ]
+      },
+      {
+        "title": "3. Content Ownership & Copyright",
+        "content": [
+          "All translated materials remain derivative works. MangaTranslator does not claim ownership of original manga content. Users are responsible for ensuring they have the right to process and translate any materials uploaded to our service.",
+          "The original artwork, characters, and stories are the intellectual property of their respective creators and publishers. MangaTranslator is designed to facilitate translation only and does not condone copyright infringement."
+        ]
+      },
+      {
+        "title": "4. Personal & Non-Commercial Use",
+        "content": [
+          "MangaTranslator is intended for personal, non-commercial use. Translated content generated using MangaTranslator should not be republished, redistributed, or sold without explicit permission from the copyright holders. Commercial use requires proper licensing and attribution."
+        ]
+      },
+      {
+        "title": "5. File Privacy & Deletion",
+        "content": [
+          "All uploaded files are processed temporarily and permanently deleted within 24 hours. We do not store, archive, or use uploaded materials for any purpose other than translation processing. Your content is secure and private."
+        ]
+      },
+      {
+        "title": "6. Disclaimer of Warranties",
+        "content": [
+          "The materials on MangaTranslator are provided on an 'as is' basis. MangaTranslator makes no warranties, expressed or implied, and hereby disclaims and negates all other warranties including, without limitation, implied warranties or conditions of merchantability, fitness for a particular purpose, or non-infringement of intellectual property or other violation of rights."
+        ]
+      },
+      {
+        "title": "7. Translation Accuracy",
+        "content": [
+          "While we strive for high translation accuracy, MangaTranslator is powered by AI and may produce errors or inaccuracies. We recommend human review for important content. We are not liable for any errors, omissions, or inaccuracies in translations provided."
+        ]
+      },
+      {
+        "title": "8. Limitation of Liability",
+        "content": [
+          "In no event shall MangaTranslator or its suppliers be liable for any damages (including, without limitation, damages for loss of data or profit, or due to business interruption) arising out of the use or inability to use the materials on MangaTranslator."
+        ]
+      },
+      {
+        "title": "9. Modifications to Terms",
+        "content": [
+          "MangaTranslator may revise these terms of service for our Website at any time without notice. By using this Website, you are agreeing to be bound by the then current version of these terms of service."
+        ]
+      },
+      {
+        "title": "10. Governing Law",
+        "content": [
+          "These terms and conditions are governed by and construed in accordance with the laws of the jurisdiction in which MangaTranslator operates, and you irrevocably submit to the exclusive jurisdiction of the courts in that location."
+        ]
+      },
+      {
+        "title": "11. Contact Information",
+        "content": [
+          "If you have any questions about these Terms and Conditions, please contact us:\nEmail: support@mangatranslator.app\nDiscord: Join our community server\nGitHub: Visit our repository"
+        ]
+      }
+    ],
+    "lastUpdated": "Last updated: June 2026. These terms are subject to change at any time."
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "description": "Your privacy is important to us. Read how we protect your data.",
+    "sections": [
+      {
+        "title": "1. Introduction",
+        "content": [
+          "MangaTranslator (\"we\", \"our\", or \"us\") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our service."
+        ]
+      },
+      {
+        "title": "2. Information We Collect",
+        "content": [
+          "Uploaded Files: When you upload manga images to be translated, we process them temporarily. These files are not stored permanently and are deleted within 24 hours of processing.",
+          "Usage Data: We collect anonymized usage statistics (pages translated, processing time) to improve our service. This data is never linked to your identity.",
+          "Device Information: We may collect information about your browser, device type, and IP address for security and analytics purposes."
+        ]
+      },
+      {
+        "title": "3. How We Use Your Information",
+        "content": [
+          "Process and translate uploaded manga images",
+          "Improve translation quality and AI accuracy",
+          "Monitor and debug service performance",
+          "Prevent fraud and enhance security",
+          "Send important service updates (if you opt-in)"
+        ]
+      },
+      {
+        "title": "4. Data Retention",
+        "content": [
+          "Uploaded Files: Permanently deleted within 24 hours of processing. We do not retain copies.",
+          "Usage Analytics: Anonymized data is retained for 90 days for service improvement.",
+          "Cookies & Storage: Local browser data (cookies, local storage) is managed by your browser and can be cleared anytime."
+        ]
+      },
+      {
+        "title": "5. No Tracking or Advertising",
+        "content": [
+          "MangaTranslator does not use third-party tracking services, advertising networks, or analytics tools that profile your behavior. We do not sell, trade, or rent your personal information to any third parties."
+        ]
+      },
+      {
+        "title": "6. Security",
+        "content": [
+          "We implement industry-standard security measures to protect your data: HTTPS encryption for all data in transit, secure servers with firewall protection, regular security audits and updates, limited access to sensitive data."
+        ]
+      },
+      {
+        "title": "7. Your Rights",
+        "content": [
+          "You have the right to request what data we have collected about you, request deletion of your data, opt-out of non-essential communications, and access and port your data."
+        ]
+      },
+      {
+        "title": "8. Cookies",
+        "content": [
+          "We use minimal cookies for session management and user preferences. You can disable cookies in your browser settings, though some features may not work optimally."
+        ]
+      },
+      {
+        "title": "9. Third-Party Services",
+        "content": [
+          "MangaTranslator does not integrate with third-party analytics, advertising, or tracking services. We host on secure servers but do not share data with external parties except as required by law."
+        ]
+      },
+      {
+        "title": "10. Children's Privacy",
+        "content": [
+          "MangaTranslator is not intended for users under 13. We do not knowingly collect personal information from children. If we learn we have collected such information, we will promptly delete it."
+        ]
+      },
+      {
+        "title": "11. Changes to This Policy",
+        "content": [
+          "We may update this Privacy Policy periodically. Significant changes will be announced on our website or via email. Your continued use of MangaTranslator means you accept any changes."
+        ]
+      },
+      {
+        "title": "12. Contact Us",
+        "content": [
+          "If you have privacy concerns or requests: Email: privacy@mangatranslator.app, Discord: Join our community server, GitHub: Visit our repository for transparency."
+        ]
+      }
+    ],
+    "lastUpdated": "Last updated: June 2026. We take your privacy seriously and are committed to transparency."
+  }
+}
