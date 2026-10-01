@@ -12,12 +12,13 @@ import Privacy from './Privacy.jsx';
 function App() {
   const [activeTab, setActiveTab] = useState('Home');
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const [isSettingsOpen, setIsSettingsOpen] = useState(false);
 
   const renderPage = () => {
     const pageMap = {
       Home: <Landing onNavigate={setActiveTab} />,
       Dashboard: <Dashboard onCreate={() => setActiveTab('Translate')} />,
-      Translate: <Translate />,
+      Translate: <Translate isSettingsOpen={isSettingsOpen} setIsSettingsOpen={setIsSettingsOpen} />,
       About: <About />,
       FAQs: <FAQs />,
       'Terms and Conditions': <Terms />,
@@ -34,6 +35,7 @@ function App() {
         setActiveTab={setActiveTab}
         isDrawerOpen={isDrawerOpen}
         setIsDrawerOpen={setIsDrawerOpen}
+        onOpenSettings={() => setIsSettingsOpen(true)}
       />
 
       <main className="flex-1 min-h-0 mx-auto w-full max-w-7xl px-4 pt-28 sm:px-6 lg:px-8 fade-in">

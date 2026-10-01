@@ -15,7 +15,7 @@ function Dashboard({ onCreate }) {
         </div>
         <button
           onClick={onCreate}
-          className="mx-auto rounded-full bg-accent px-12 py-4 text-base font-semibold text-background shadow-[0_18px_40px_rgba(59,130,246,0.28)] transition duration-300 hover:bg-accentSoft hover:shadow-[0_22px_44px_rgba(59,130,246,0.38)] focus:outline-none"
+          className="neu-button neu-button-primary mx-auto px-12 py-4 text-base focus:outline-none"
         >
           {t('dashboard.button')}
         </button>

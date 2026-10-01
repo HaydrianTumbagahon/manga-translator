@@ -18,13 +18,13 @@ function Landing({ onNavigate }) {
         <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
           <button
             onClick={() => onNavigate('Translate')}
-            className="rounded-full bg-accent px-8 py-4 text-sm font-semibold text-background shadow-[0_18px_42px_rgba(59,130,246,0.28)] transition duration-300 hover:bg-accentSoft"
+            className="neu-button neu-button-primary px-8 py-4"
           >
             {t('landing.start')}
           </button>
           <button
             onClick={() => onNavigate('Dashboard')}
-            className="rounded-full border border-white/10 bg-surface px-8 py-4 text-sm font-semibold text-text/80 transition duration-300 hover:border-accent hover:text-accent"
+            className="neu-button px-8 py-4 text-text/80"
           >
             {t('landing.dashboard')}
           </button>

@@ -2,17 +2,17 @@ import { useTranslation } from 'react-i18next';
 
 const links = ['About', 'FAQs', 'Terms and Conditions', 'Privacy Policy'];
 const languages = [
-  { code: 'en', label: 'English' },
-  { code: 'zh-CN', label: '简体中文' },
-  { code: 'zh-TW', label: '繁體中文' },
-  { code: 'ja', label: '日本語' },
-  { code: 'ko', label: '한국어' },
-  { code: 'ar', label: 'العربية' },
-  { code: 'bn', label: 'বাংলা' },
-  { code: 'de', label: 'Deutsch' },
-  { code: 'es', label: 'Español' },
-  { code: 'fr', label: 'Français' },
-  { code: 'hi', label: 'हिन्दी' }
+  { code: 'en', label: 'EN', name: 'English' },
+  { code: 'zh-CN', label: 'ZH-CN', name: 'Simplified Chinese' },
+  { code: 'zh-TW', label: 'ZH-TW', name: 'Traditional Chinese' },
+  { code: 'ja', label: 'JP', name: 'Japanese' },
+  { code: 'ko', label: 'KR', name: 'Korean' },
+  { code: 'ar', label: 'AR', name: 'Arabic' },
+  { code: 'bn', label: 'BN', name: 'Bengali' },
+  { code: 'de', label: 'DE', name: 'German' },
+  { code: 'es', label: 'ES', name: 'Spanish' },
+  { code: 'fr', label: 'FR', name: 'French' },
+  { code: 'hi', label: 'HI', name: 'Hindi' }
 ];
 const socials = [
   {
@@ -25,15 +25,6 @@ const socials = [
     ),
   },
   {
-    name: 'Twitter',
-    href: 'https://twitter.com',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="currentColor" className="h-5 w-5">
-        <path d="M22.46 6c-.77.35-1.6.58-2.47.69a4.34 4.34 0 001.9-2.4 8.7 8.7 0 01-2.75 1.05 4.33 4.33 0 00-7.38 3.95 12.27 12.27 0 01-8.9-4.5 4.33 4.33 0 001.34 5.78 4.28 4.28 0 01-1.96-.54v.06a4.33 4.33 0 003.47 4.24 4.34 4.34 0 01-1.95.07 4.34 4.34 0 004.05 3.01A8.7 8.7 0 012 19.54a12.29 12.29 0 006.64 1.95c7.97 0 12.33-6.6 12.33-12.33v-.56A8.8 8.8 0 0024 5.5a8.5 8.5 0 01-2.54.7z" />
-      </svg>
-    ),
-  },
-  {
     name: 'Discord',
     href: 'https://discord.com',
     icon: (
@@ -42,15 +33,6 @@ const socials = [
       </svg>
     ),
   },
-  {
-    name: 'YouTube',
-    href: 'https://youtube.com',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="currentColor" className="h-5 w-5">
-        <path d="M23.5 6.2s-.2-1.6-.8-2.3c-.8-.9-1.7-.9-2.1-1-2.9-.2-7.2-.2-7.2-.2h-.1s-4.3 0-7.2.2c-.4.1-1.4.1-2.1 1-.6.7-.8 2.3-.8 2.3S2 7.9 2 9.7v1.6c0 1.8.2 3.5.2 3.5s.2 1.6.8 2.3c.8.9 1.9.9 2.4 1 1.7.1 7.2.2 7.2.2s4.3 0 7.2-.2c.4-.1 1.4-.1 2.1-1 .6-.7.8-2.3.8-2.3s.2-1.7.2-3.5v-1.6c0-1.8-.2-3.5-.2-3.5zM9.75 14.57V8.43l5.5 3.07-5.5 3.07z" />
-      </svg>
-    ),
-  }
 ];
 
 function Footer({ setActiveTab }) {
@@ -98,9 +80,11 @@ function Footer({ setActiveTab }) {
                   key={lang.code}
                   type="button"
                   onClick={() => handleLanguageChange(lang.code)}
-                  className={`text-sm transition duration-200 ease-out ${
+                  title={lang.name}
+                  aria-label={`${lang.name} (${lang.label})`}
+                  className={`neu-button min-h-10 rounded-xl px-3 py-2 text-xs transition duration-200 ease-out ${
                     active
-                      ? 'text-accent'
+                      ? 'neu-button-primary'
                       : 'text-text/70 hover:text-accent'
                   }`}
                 >

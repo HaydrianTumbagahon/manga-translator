@@ -1,9 +1,10 @@
 import { useTranslation } from 'react-i18next';
+import { FiSettings } from 'react-icons/fi';
 
 const tabs = ['Dashboard', 'Translate'];
 const drawerLinks = ['About', 'FAQs', 'Terms and Conditions', 'Privacy Policy'];
 
-function Navbar({ activeTab, setActiveTab, isDrawerOpen, setIsDrawerOpen }) {
+function Navbar({ activeTab, setActiveTab, isDrawerOpen, setIsDrawerOpen, onOpenSettings }) {
   const { t } = useTranslation();
 
   const handleNavigate = (tab) => {
@@ -27,26 +28,40 @@ function Navbar({ activeTab, setActiveTab, isDrawerOpen, setIsDrawerOpen }) {
           {t('app.title')}
         </button>
 
-        <nav className="hidden md:flex flex-wrap items-center gap-3">
-          {tabs.map((tab) => {
-            const isActive = activeTab === tab;
-            const tabKey = tab.toLowerCase();
-            return (
-              <button
-                key={tab}
-                onClick={() => handleNavigate(tab)}
-                className={`rounded-full px-5 py-2 text-sm font-medium transition duration-300 focus:outline-none ${
-                  isActive
-                    ? 'bg-accent text-background shadow-[0_12px_30px_rgba(59,130,246,0.28)] -translate-y-0.5'
-                    : 'bg-surface text-text/70 shadow-neu-sm hover:text-text hover:shadow-neu'
-                }`}
-                aria-current={isActive ? 'page' : undefined}
-              >
-                {t(`nav.${tabKey}`)}
-              </button>
-            );
-          })}
-        </nav>
+        <div className="hidden items-center gap-2 md:flex">
+          <nav className="flex flex-wrap items-center gap-2">
+            {tabs.map((tab) => {
+              const isActive = activeTab === tab;
+              const tabKey = tab.toLowerCase();
+              return (
+                <button
+                  key={tab}
+                  onClick={() => handleNavigate(tab)}
+                  className={`neu-button px-5 py-2 focus:outline-none hover:-translate-y-0.5 active:translate-y-0 active:shadow-neu-active ${
+                    isActive
+                      ? 'neu-button-primary'
+                      : 'text-text/70 hover:text-text'
+                  }`}
+                  aria-current={isActive ? 'page' : undefined}
+                >
+                  {t(`nav.${tabKey}`)}
+                </button>
+              );
+            })}
+          </nav>
+
+          {activeTab === 'Translate' && (
+            <button
+              type="button"
+              onClick={onOpenSettings}
+              className="neu-button neu-button-icon"
+              aria-label={t('translate.settings.open')}
+              title={t('translate.settings.open')}
+            >
+              <FiSettings aria-hidden="true" />
+            </button>
+          )}
+        </div>
 
         <div className="md:hidden">
           <div className="hamburger">
@@ -103,7 +118,7 @@ function Navbar({ activeTab, setActiveTab, isDrawerOpen, setIsDrawerOpen }) {
                   key={tab}
                   type="button"
                   onClick={() => handleNavigate(tab)}
-                  className="w-full rounded-[1.75rem] border border-white/10 bg-background/85 px-5 py-5 text-left text-base font-semibold text-text transition duration-300 hover:border-accent hover:bg-blue-500/10 hover:text-accent"
+                  className="neu-button w-full justify-start px-5 py-5 text-left text-base"
                 >
                   {t(`nav.${tab.toLowerCase()}`)}
                 </button>
@@ -121,7 +136,7 @@ function Navbar({ activeTab, setActiveTab, isDrawerOpen, setIsDrawerOpen }) {
                     key={link}
                     type="button"
                     onClick={() => handleNavigate(link)}
-                    className="w-full rounded-[1.5rem] px-4 py-4 text-left text-sm font-medium text-text/80 transition duration-300 hover:text-accent"
+                    className="neu-button w-full justify-start px-4 py-4 text-left text-sm font-medium text-text/80"
                   >
                     {t(`nav.${key}`)}
                   </button>

@@ -29,7 +29,7 @@ function NotFound() {
         </p>
         <button
           onClick={() => navigate('/dashboard')}
-          className="mt-8 inline-flex rounded-full bg-accent px-8 py-4 text-sm font-semibold text-background shadow-[0_18px_42px_rgba(59,130,246,0.28)] transition duration-300 hover:bg-accentSoft"
+          className="neu-button neu-button-primary mt-8 px-8 py-4"
         >
           Back to dashboard
         </button>

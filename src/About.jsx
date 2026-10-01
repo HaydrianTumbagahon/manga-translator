@@ -6,9 +6,9 @@ function About() {
 
   return (
     <div className="w-full space-y-10 pb-16 sm:space-y-12">
-      <div className="w-full space-y-4 sm:space-y-6">
-        <div className="w-full space-y-3 sm:space-y-4">
-          <h1 className="break-words text-3xl font-bold leading-tight text-text sm:text-4xl md:text-5xl lg:text-6xl">
+      <div className="mx-auto w-full max-w-5xl space-y-4 sm:space-y-6">
+        <div className="max-w-3xl space-y-3 sm:space-y-4">
+          <h1 className="break-words text-3xl font-bold leading-tight text-text sm:text-4xl md:text-5xl">
             {t('about.title')}
           </h1>
           <p className="text-base leading-7 text-text/70 sm:text-lg sm:leading-8">
@@ -17,7 +17,7 @@ function About() {
         </div>
       </div>
 
-      <div className="grid w-full gap-4 sm:gap-6 md:grid-cols-2">
+      <div className="mx-auto grid w-full max-w-5xl gap-4 sm:gap-6 md:grid-cols-2">
         <div className="w-full overflow-hidden rounded-[2rem] border border-white/10 bg-surface/90 p-5 sm:p-8 shadow-neu transition duration-300 hover:shadow-neu-sm">
           <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-[1.5rem] bg-accent/10 text-accent flex-shrink-0">
             <svg viewBox="0 0 24 24" fill="none" className="h-8 w-8" strokeWidth="2" stroke="currentColor">
@@ -67,7 +67,7 @@ function About() {
         </div>
       </div>
 
-      <div className="w-full overflow-hidden rounded-[2rem] border border-white/10 bg-background/80 p-5 sm:p-8 shadow-neu">
+      <div className="mx-auto w-full max-w-5xl overflow-hidden rounded-[2rem] border border-white/10 bg-background/80 p-5 shadow-neu sm:p-8">
         <h2 className="mb-4 text-2xl font-bold text-text sm:mb-6 sm:text-3xl">{t('about.whyTitle')}</h2>
         <div className="grid w-full gap-3 sm:gap-4 sm:grid-cols-2">
           {benefits.map((item, idx) => (
@@ -79,19 +79,11 @@ function About() {
         </div>
       </div>
 
-      <div className="w-full overflow-hidden rounded-[2rem] border border-white/10 bg-surface/90 p-5 sm:p-8 shadow-neu">
+      <div className="mx-auto w-full max-w-5xl overflow-hidden rounded-[2rem] border border-white/10 bg-surface/90 p-5 shadow-neu sm:p-8">
         <h2 className="mb-4 text-2xl font-bold text-text sm:mb-6 sm:text-2xl">{t('about.openSourceTitle')}</h2>
         <p className="mb-4 text-sm leading-6 text-text/70 sm:mb-6 sm:text-base sm:leading-7">
           {t('about.openSourceText')}
         </p>
-        <div className="flex flex-wrap gap-3 sm:gap-4">
-          <button className="rounded-full border border-white/10 bg-background/80 px-5 py-2 text-sm font-medium text-text/80 transition duration-300 hover:border-accent hover:text-accent sm:px-6 sm:py-3">
-            {t('about.githubButton')}
-          </button>
-          <button className="rounded-full border border-white/10 bg-background/80 px-5 py-2 text-sm font-medium text-text/80 transition duration-300 hover:border-accent hover:text-accent sm:px-6 sm:py-3">
-            {t('about.discordButton')}
-          </button>
-        </div>
       </div>
     </div>
   );
