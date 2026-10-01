@@ -36,10 +36,32 @@
       "spanish": "Spanish",
       "french": "French"
     },
+    "settings": {
+      "title": "Translation settings",
+      "description": "Choose an AI provider, enter its API key, and choose how pages should be read before translation.",
+      "provider": "AI provider",
+      "apiKey": "API key",
+      "apiKeyPlaceholder": "Paste your provider API key",
+      "model": "Model",
+      "modelPlaceholder": "Enter a Gemini model name",
+      "targetLanguage": "Target language",
+      "readingDirection": "Reading direction",
+      "mangaDirection": "Manga: right to left",
+      "manhwaDirection": "Manhwa: top to bottom",
+      "testKey": "Test key",
+      "testing": "Testing...",
+      "testSuccess": "Key works. Gemini replied successfully.",
+      "modelUnavailable": "Update the model name in Settings.",
+      "keyNote": "Keys are saved only in this browser on this PC and are sent only to the provider you choose. Never share them publicly.",
+      "providerNote": "Gemini, Grok, and ChatGPT use separate saved keys.",
+      "open": "Open AI settings",
+      "close": "Close AI settings"
+    },
     "browseTitle": "Browse files or Drag&Drop them here",
     "browseSubtitle": "Supported: jpg, png, webp, zip, cbz, folders",
     "outputTitle": "Output",
     "outputPlaceholder": "Output will be displayed here",
+    "fallbackNotice": "The primary model was busy. Translation completed with fallback model: {{model}}.",
     "translateButton": "Translate",
     "clearButton": "Clear",
     "recentTitle": "Your recent translations",
@@ -57,102 +79,102 @@
   },
   "about": {
     "title": "About MangaTranslator",
-    "description": "Bridging the gap between manga creators and global audiences through intelligent, accessible translation technology.",
+    "description": "MangaTranslator is a work-in-progress manga page translator. Bring a supported image and your own AI provider API key to generate a translated page in your browser.",
     "passionTitle": "Our Passion",
-    "passionText": "We started this project out of genuine love for manga and doujins. Frustrated with inconsistent and low-quality translations, we decided to create something better — a tool that respects the original artwork while delivering accurate, polished translations to readers worldwide.",
+    "passionText": "This project explores a clearer way to prepare manga pages for translation. The focus is a straightforward workflow that keeps the original page visible while readers choose a source and target language.",
     "missionTitle": "Our Mission",
-    "missionText": "Make high-quality manga translations accessible to everyone, instantly, while preserving the visual beauty of the original work. We believe language should never be a barrier to enjoying amazing stories.",
-    "featuresTitle": "Current Features",
-    "featuresText": "Support for multiple languages, batch processing, AI-powered translation with context awareness, and artwork preservation. Our engine handles complex manga layouts and speech bubbles with precision.",
+    "missionText": "Our aim is to make manga translation tools easier to understand and use, while encouraging respect for the creators and rights holders behind the original work.",
+    "featuresTitle": "What works in this build",
+    "featuresText": "Translate JPG, PNG, and WebP pages with Gemini, Grok, or OpenAI-compatible vision models, then preview and download the rendered result. Folder uploads, archive extraction, accounts, and saved translation history are not implemented.",
     "visionTitle": "Future Vision",
-    "visionText": "Expanding to support more languages, adding real-time translation mode, integrating community feedback, and building mobile apps. We're committed to continuous improvement and community collaboration.",
-    "whyTitle": "Why Choose MangaTranslator?",
+    "visionText": "Future work will focus on more reliable text detection, editable translations, improved lettering and background cleanup, archive support, and additional language options.",
+    "whyTitle": "Project principles",
     "benefits": [
       {
-        "title": "Context-Aware",
-        "desc": "AI understands manga-specific language and cultural nuances"
+        "title": "A clear workflow",
+        "desc": "Keep language selection, file selection, and preview easy to follow"
       },
       {
-        "title": "Artwork Preserved",
-        "desc": "Original art and layout remain untouched and beautiful"
+        "title": "Respect for source art",
+        "desc": "Preview source images without editing their original files"
       },
       {
-        "title": "Fast Processing",
-        "desc": "Get translations in seconds, not hours"
+        "title": "Honest status",
+        "desc": "Be clear that AI output needs review and rendering is still experimental"
       },
       {
-        "title": "Multiple Languages",
-        "desc": "Support for Japanese, English, Spanish, French, and more"
+        "title": "Language choice",
+        "desc": "Choose among the source and target languages currently listed in the interface"
       },
       {
-        "title": "Quality Focused",
-        "desc": "Hand-tuned translations that read naturally"
+        "title": "Privacy awareness",
+        "desc": "Images are sent directly from the browser to the provider you select"
       },
       {
-        "title": "Community Driven",
-        "desc": "Built with manga readers and creators in mind"
+        "title": "Room to improve",
+        "desc": "The prototype can evolve as real service requirements become clear"
       }
     ],
-    "openSourceTitle": "Open Source & Community",
-    "openSourceText": "MangaTranslator is built by passionate developers and manga enthusiasts. We believe in transparency, community collaboration, and giving back to the manga community. Contributions, feedback, and support from readers like you make this project possible.",
+    "openSourceTitle": "Project status",
+    "openSourceText": "This repository is a frontend learning project. Translation requests go directly from the browser to the selected AI provider; there is no application server, account system, or persistent translation history. Check the repository's license before reusing the code.",
     "githubButton": "View on GitHub",
     "discordButton": "Join Discord"
   },
   "faqs": {
     "title": "Frequently Asked Questions",
-    "description": "Find answers to common questions about MangaTranslator, features, and how to get the best results.",
+    "description": "Answers about translation providers, supported images, privacy, and current limitations.",
     "items": [
       {
-        "question": "What file formats does MangaTranslator support?",
-        "answer": "We support JPG, PNG, WebP, and archive formats like ZIP and CBZ (Comic Book Archive). You can also upload entire folders for batch processing. Our system automatically detects the best processing method for each file type."
+        "question": "Which file types can I select?",
+        "answer": "JPG, JPEG, PNG, and WebP images can be translated. ZIP and CBZ files can appear in the file chooser, but archive extraction is not implemented, so archives cannot be translated yet."
       },
       {
-        "question": "How accurate are the translations?",
-        "answer": "Our AI-powered translation engine uses context-aware deep learning trained on thousands of manga pages. Accuracy depends on image quality and text clarity, but we typically achieve 95%+ accuracy for most manga. Manual review is recommended for professional use."
+        "question": "Does this build translate manga pages?",
+        "answer": "Yes. Configure your own API key for Gemini, xAI Grok, or OpenAI in AI settings, then select image pages and start translation. AI results and rendered text placement can be inaccurate, so review each page."
       },
       {
-        "question": "Is my data safe and private?",
-        "answer": "Absolutely. All processing happens securely on our servers. Uploaded files are processed and deleted immediately after translation. We do not store, share, or use your images for training. See our Privacy Policy for detailed information."
+        "question": "Are my files uploaded to a server?",
+        "answer": "When you start a translation, the image and prompt are sent directly from your browser to the AI provider you selected. This project does not include its own translation server. Review the provider's terms and privacy policy before use."
       },
       {
-        "question": "How long does translation take?",
-        "answer": "Most images translate in 5-30 seconds depending on complexity and current server load. Batch processing typically takes a few minutes for 50+ pages. Premium users get priority processing queues."
+        "question": "Are selected files or translations saved?",
+        "answer": "Provider API keys and model choices are stored in your browser's local storage. Translation images and recent-translation entries are kept in page memory and are not persisted by this app. The selected interface language is also stored locally."
       },
       {
-        "question": "Can I translate manga into multiple languages at once?",
-        "answer": "Yes! You can translate a single manga into multiple target languages simultaneously. Choose your target languages, and our system will process and deliver all versions. This is perfect for sharing with international communities."
+        "question": "Can I translate into several languages at once?",
+        "answer": "One target language can be selected per run. You can add multiple image pages, which are translated one after another."
       },
       {
-        "question": "Does MangaTranslator preserve the original artwork?",
-        "answer": "Yes, that's our core philosophy. We only translate the text and speech bubbles while keeping all original artwork, colors, and layout intact. The character expressions and visual storytelling remain exactly as the artist intended."
+        "question": "Does the preview change my original image?",
+        "answer": "The original file is not modified. The app creates a separate downloadable image, but its early renderer covers detected regions with a sampled color and may not preserve the artwork underneath."
       },
       {
         "question": "Can I use these translations commercially?",
-        "answer": "MangaTranslator is designed for personal use and fan translation. Using our translations for commercial purposes requires proper licensing agreements with copyright holders. Please review our Terms and Conditions for details."
+        "answer": "Copyright and other rights may apply to source material and generated output. Make sure you have permission for your intended use; this FAQ is not legal advice."
       },
       {
         "question": "Do you support OCR for handwritten text?",
-        "answer": "Our current system handles printed manga text excellently. Handwritten text recognition is on our roadmap for future releases. Let us know if this feature is important to you!"
+        "answer": "The selected AI vision model attempts to find and read text, but handwriting and difficult lettering may be missed or misread. Results need human review."
       },
       {
         "question": "What languages can I translate from and to?",
-        "answer": "We currently support Japanese, English, Spanish, French, German, Italian, Portuguese, Korean, and Simplified/Traditional Chinese. More languages are being added regularly based on community demand."
+        "answer": "Source choices are auto-detect, Japanese, English, and Korean. Target choices are English, Japanese, Spanish, and French. These are translation choices, separate from the language used for the interface."
       },
       {
         "question": "Is there a batch processing limit?",
-        "answer": "Free users can translate up to 50 pages per month. Premium users get unlimited processing. Batch upload supports up to 1000 pages at once for efficient processing."
+        "answer": "The app has no account tiers or page quotas. Provider rate limits, usage costs, and request limits still apply to your API account."
       },
       {
         "question": "How do I report a translation error?",
-        "answer": "We have a feedback system in the dashboard where you can report inaccuracies. Your feedback helps us improve the AI model. Premium users get direct support and manual correction options."
+        "answer": "There is no in-app feedback or support system connected in this build. Use a project contact channel only if the maintainers have published and verified one."
       },
       {
         "question": "Is MangaTranslator open source?",
-        "answer": "Yes! Our codebase is open source on GitHub. We welcome contributions, bug reports, and feature requests from the community. Join our Discord server to connect with other developers and users."
+        "answer": "The interface does not establish a software license or verified community channel. Check the repository for its license and current maintainer-provided links before reusing the code."
       }
     ],
     "ctaTitle": "Still have questions?",
-    "ctaText": "Can't find the answer you're looking for? Please reach out to our support team or join our community Discord.",
+    "ctaText": "This prototype does not yet have an in-app support channel. Check for verified contact details from the project maintainers.",
     "supportButton": "Contact Support",
     "discordButton": "Join Discord"
   },
@@ -180,7 +202,7 @@
       {
         "title": "3. Content Ownership & Copyright",
         "content": [
-          "All translated materials remain derivative works. MangaTranslator does not claim ownership of original manga content. Users are responsible for ensuring they have the right to process and translate any materials uploaded to our service.",
+          "Translated materials may be derivative works. MangaTranslator does not claim ownership of original manga content. Users are responsible for ensuring they have the right to process and translate any materials they send to a provider.",
           "The original artwork, characters, and stories are the intellectual property of their respective creators and publishers. MangaTranslator is designed to facilitate translation only and does not condone copyright infringement."
         ]
       },
@@ -193,7 +215,7 @@
       {
         "title": "5. File Privacy & Deletion",
         "content": [
-          "All uploaded files are processed temporarily and permanently deleted within 24 hours. We do not store, archive, or use uploaded materials for any purpose other than translation processing. Your content is secure and private."
+          "This frontend does not upload files to a MangaTranslator server. When you request a translation, the selected image is sent directly to your chosen AI provider. The provider's data retention and processing terms apply."
         ]
       },
       {
@@ -266,9 +288,9 @@
       {
         "title": "4. Data Retention",
         "content": [
-          "Uploaded Files: Permanently deleted within 24 hours of processing. We do not retain copies.",
-          "Usage Analytics: Anonymized data is retained for 90 days for service improvement.",
-          "Cookies & Storage: Local browser data (cookies, local storage) is managed by your browser and can be cleared anytime."
+          "Images and translation results are held in browser memory while the page is open; this app does not persist them.",
+          "Provider API keys and model choices are stored in browser local storage until cleared by the user.",
+          "The selected AI provider processes images and prompts sent for translation under its own data-retention policy."
         ]
       },
       {
@@ -280,7 +302,7 @@
       {
         "title": "6. Security",
         "content": [
-          "We implement industry-standard security measures to protect your data: HTTPS encryption for all data in transit, secure servers with firewall protection, regular security audits and updates, limited access to sensitive data."
+          "This project has no backend secret store. API keys are saved in browser local storage and included in requests from your browser to the selected provider. Use a trusted device and clear local storage to remove saved keys."
         ]
       },
       {
@@ -298,7 +320,7 @@
       {
         "title": "9. Third-Party Services",
         "content": [
-          "MangaTranslator does not integrate with third-party analytics, advertising, or tracking services. We host on secure servers but do not share data with external parties except as required by law."
+          "Translation requests are sent to the AI provider you select. This repository does not include an analytics or advertising integration, but a hosting provider may independently process website requests."
         ]
       },
       {
